@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Page 1 : Informations Personnelles</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form [formGroup]="page1Form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="civility">Civilité:</label>
+            <div class="form-check">
+              <input type="radio" id="ChoiceMr" formControlName="civility" value="Mr" class="form-check-input" />
+              <label for="ChoiceMr" class="form-check-label">Mr</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="ChoiceMme" formControlName="civility" value="Mme" class="form-check-input" />
+              <label for="ChoiceMme" class="form-check-label">Mme</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Nom:</label>
+            <input type="text" formControlName="lastName" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="firstName">Prénom:</label>
+            <input type="text" formControlName="firstName" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" formControlName="email" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Téléphone:</label>
+            <input type="tel" formControlName="phoneNumber" class="form-control">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Suivant</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

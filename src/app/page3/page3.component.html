@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Récapitulatif</h2>
+  
+    <div *ngIf="personalInfo" class="text-center">
+      <p class="font-weight-bold">Merci {{ personalInfo.civility }} {{ personalInfo.firstName }} {{ personalInfo.lastName }}</p>
+    </div>
+  
+    <div *ngIf="projectInfo">
+      <p class="mt-4">Informations du projet :</p>
+      <ul class="list-group">
+        <li class="list-group-item">Propriétaire : {{ projectInfo.proprietaire ? 'Oui' : 'Non' }}</li>
+        <li class="list-group-item">Nombre de personnes dans le foyer : {{ projectInfo.nombrePersonnesFoyer }}</li>
+        <li class="list-group-item">Revenus du foyer : {{ projectInfo.revenusFoyer }} euros</li>
+        <li class="list-group-item">Surface du bien : {{ projectInfo.surfaceBien }} m²</li>
+      </ul>
+  
+      <ng-container *ngIf="projectInfo.proprietaire; else notOwner">
+        <div class="mt-4">
+          <p>Coût du projet : {{ costOfProject() | number: '1.2-2' }} euros</p>
+          <p>Montant de l'aide Effy : {{ EiffyAid() | number: '1.2-2' }} euros</p>
+          <div *ngIf="EiffyAid() > 0; else notEligible" class="alert alert-success mt-3">
+            <p>Félicitations, vous êtes éligible à notre programme d'aides et d'accompagnement.</p>
+          </div>
+        </div>
+      </ng-container>
+  
+      <ng-template #notEligible>
+        <div class="alert alert-danger mt-3">
+          <p>Désolé, vous ne répondez pas aux critères d'éligibilité.</p>
+        </div>
+      </ng-template>
+    </div>
+  
+    <ng-template #notOwner>
+      <div class="alert alert-danger mt-3">
+        <p>Désolé, vous ne répondez pas aux critères d'éligibilité car vous n'êtes pas propriétaire.</p>
+      </div>
+    </ng-template>
+  </div>
+  

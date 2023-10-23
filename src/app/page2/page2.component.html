@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Page 2 : Informations du Projet</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form [formGroup]="page2Form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="isOwner">Êtes-vous propriétaire ?</label>
+            <div class="form-check">
+              <input type="radio" id="Choice1" name="isOwner" formControlName="isOwner" value="owner" class="form-check-input" />
+              <label for="Choice1" class="form-check-label">Oui</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="Choice2" name="isOwner" formControlName="isOwner" value="notOwner" class="form-check-input" />
+              <label for="Choice2" class="form-check-label">Non</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="numberOfPerson">Nombre de personnes dans le foyer:</label>
+            <input type="number" formControlName="numberOfPerson" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="income">Revenus du foyer (en euros) :</label>
+            <input type="number" formControlName="income" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="surface">Surface du bien (en m²) :</label>
+            <input type="number" formControlName="surface" class="form-control">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Suivant</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
